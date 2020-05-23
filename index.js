@@ -1,9 +1,10 @@
-const http = require('http');
+// const http = require('http');
+var express = require('express');
+var app = express();
 const url = require('url');
 const port = process.env.PORT || 3000
 
-const server = http.createServer((req, res) => {
-  // const queryObject = url.parse(req.url,true);
+app.get('/', (req, res)=>{
   var code = ''
   try {
     code = req.param('code');
@@ -13,8 +14,8 @@ const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/html');
   res.end('<h1>Hello World</h1><p>querry object : '+code+'</p>');
-});
+})
 
-server.listen(port,() => {
+var server = app.listen(port,() => {
   console.log(`Server running at port `+port);
 });
