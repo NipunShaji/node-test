@@ -9,10 +9,7 @@ app.get('/', function (req, res) {
   console.log("working");
 })
 
-https.createServer({
-  key: fs.readFileSync('server.key'),
-  cert: fs.readFileSync('server.cert')
-}, app)
+https.createServer(app)
 .listen(port, function () {
   console.log('Example app listening on port 3000! Go to https://localhost:3000/')
 })
