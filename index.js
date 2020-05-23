@@ -13,7 +13,7 @@ app.get('/', (req, res)=>{
     code = 'no code'
   }
   try {
-    type = req.param('type');
+    type = req.param('state');
   } catch (e) {
     type = 'no type'
   }
