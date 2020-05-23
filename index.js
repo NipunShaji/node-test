@@ -3,7 +3,7 @@ const url = require('url');
 const port = process.env.PORT || 3000
 
 const server = http.createServer((req, res) => {
-  const queryObject = url.parse(req.url,true);
+  // const queryObject = url.parse(req.url,true);
   var code = ''
   try {
     code = req.param('code');
@@ -12,7 +12,7 @@ const server = http.createServer((req, res) => {
   }
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/html');
-  res.end('<h1>Hello World</h1><p>querry object : '+queryObject.pathname+'</p>');
+  res.end('<h1>Hello World</h1><p>querry object : '+code+'</p>');
 });
 
 server.listen(port,() => {
